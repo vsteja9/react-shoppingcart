@@ -1,0 +1,13 @@
+.AllProducts{
+
+    display: flexbox;
+    text-align: center;
+}
+.App {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 60px;
+    
+    
+  }
