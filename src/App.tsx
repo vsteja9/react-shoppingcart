@@ -7,7 +7,6 @@ import CartPage from "./Components/CartPage";
 import SignUp from "./Components/LoginPage";
 import SignIn from "./Components/SignInPage";
 import ProductsProvider from "./Context/ProductsContext";
-import { ToastContainer } from "react-toastify";
 
 function App() {
   // let do the signin and up do later first go without login functionality
@@ -36,7 +35,6 @@ function App() {
       <ProductsProvider>
         <RouterProvider router={router} />
       </ProductsProvider>{" "}
-      <ToastContainer/>
     </>
   );
 }
