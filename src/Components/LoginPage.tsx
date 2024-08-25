@@ -77,6 +77,9 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
+          <Typography component="h1" variant="h5">
+            Welcome React Shopping Cart
+          </Typography>
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
