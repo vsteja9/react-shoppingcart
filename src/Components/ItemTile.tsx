@@ -18,7 +18,6 @@ export default function ItemTile({ product }: any) {
     cartProducts,
     setCartProducts,
   } = useContext(Products);
-  console.log("product value", product);
 
   function handleViewDetails(e: any) {
     console.log("clicked view details", product.id);
@@ -28,6 +27,7 @@ export default function ItemTile({ product }: any) {
   }
   function handleAddCart() {
     let flag = 0;
+    if (setSelectedProduct) setSelectedProduct(product);
     if (setCartProducts) {
       if (cartProducts) {
         const existedProducts = cartProducts.map((obj: cartItem) => {
@@ -72,7 +72,10 @@ export default function ItemTile({ product }: any) {
           textAlign: "center",
         }}
       >
-        <Card sx={{ boxShadow: `0 3px 10px rgb(0 0 0 / 0.2)` }}>
+        <Card
+          sx={{ boxShadow: `0 3px 10px rgb(0 0 0 / 0.2)`, cursor: "pointer" }}
+          onClick={handleViewDetails}
+        >
           <CardContent component={"image"}>
             <Box
               fontStyle={"oblique"}

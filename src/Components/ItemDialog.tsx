@@ -64,11 +64,23 @@ export default function ItemDialog() {
         }
         return obj;
       });
-      if (setCartProducts) setCartProducts([...modifiedList]);
-    }
-    if (flag === 0 || !cartProducts) {
+      console.log("modified", modifiedList);
+      // if (setCartProducts && flag === 0)
+      //   setCartProducts([...modifiedList, selectedProduct]);
+    } else {
       if (setCartProducts)
         setCartProducts([
+          {
+            product: selectedProduct,
+            quantity: 1,
+            totalPrice: selectedProduct.price,
+          },
+        ]);
+    }
+    if (flag !== 1) {
+      if (setCartProducts && cartProducts)
+        setCartProducts([
+          ...cartProducts,
           {
             product: selectedProduct,
             quantity: 1,

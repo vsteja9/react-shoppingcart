@@ -1,0 +1,43 @@
+.navbar{
+    position: static;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(86, 55, 153);
+}
+.searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    border: 1.5px solid white;
+    border-radius: 20px;
+}
+.searchbar input{
+    border: none;
+    outline: none;
+    color: white;
+    width: 400px;
+    background: inherit;
+    font-size: large;
+    font-weight:bold;
+
+    
+}
+.searchbar input:focus {
+    color: white;
+   }
+.searchbar input.visited{
+    color: white
+}   
+.searchbar img{
+    cursor: pointer;
+    margin: 5px;
+    margin-left: 50px;
+    color: white;
+}
+input::placeholder {
+    color:  rgb(255, 255, 255);
+}
+

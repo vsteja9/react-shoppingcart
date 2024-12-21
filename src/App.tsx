@@ -7,6 +7,8 @@ import CartPage from "./Components/CartPage";
 import SignUp from "./Components/LoginPage";
 import SignIn from "./Components/SignInPage";
 import ProductsProvider from "./Context/ProductsContext";
+import NoPageFound from "./Components/NoPageFound";
+import NavigationDots from "./Components/Swiper/NavigationDot";
 
 function App() {
   // let do the signin and up do later first go without login functionality
@@ -24,10 +26,11 @@ function App() {
       path: "/ItemTile",
       element: <ItemTile />,
     },
+    { path: "/navi", element: <NavigationDots dotsCount={20}/> },
     { path: "/SignIn", element: <SignIn /> },
     { path: "/ItemDialog", element: <ItemDialog /> },
     { path: "/CartPage", element: <CartPage /> },
-    { path: "*", element: <h1>No Page Found</h1> },
+    { path: "*", element: <NoPageFound /> },
   ]);
   return (
     <>

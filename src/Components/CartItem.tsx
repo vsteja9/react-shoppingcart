@@ -1,7 +1,23 @@
 import { Button, Grid } from "@mui/material";
-import { cartItem } from "../Context/ProductsContext";
+import { cartItem, Products } from "../Context/ProductsContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CartItem({ Item }: { Item: cartItem }) {
+  const navigate = useNavigate();
+  const { selectedProduct, cartProducts, setCartProducts } =
+    useContext(Products);
+  console.log("selectedProduct", selectedProduct);
+  const handleRemove = (e: any) => {
+    if (cartProducts) {
+      const modifiedCartProduct = cartProducts.filter((cartProduct) => {
+        if (cartProduct.product !== Item.product) return cartProduct;
+      });
+      if (setCartProducts && modifiedCartProduct)
+        setCartProducts([...modifiedCartProduct]);
+      if (modifiedCartProduct.length === 0) navigate("/mainpage");
+    }
+  };
   return (
     <>
       <Grid
@@ -50,6 +66,7 @@ export default function CartItem({ Item }: { Item: cartItem }) {
               padding: 10,
               textAlign: "center",
             }}
+            onClick={handleRemove}
           >
             Remove
           </Button>

@@ -43,6 +43,10 @@ export default function SignUp() {
   const [password, setPassword] = useState<string>("");
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
+  React.useEffect(() => {
+    // if we want to save the data we need to stringify obj
+    localStorage.setItem("cartProducts", JSON.stringify([]));
+  }, []);
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {

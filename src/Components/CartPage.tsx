@@ -3,11 +3,11 @@ import CartItem from "./CartItem";
 import { Products } from "../Context/ProductsContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import thankyou from "./thankyou.png";
 
 export default function CartPage() {
   const navigate = useNavigate();
-  const { cartProducts, setViewDetailsClicked } =
-    useContext(Products);
+  const { cartProducts, setViewDetailsClicked } = useContext(Products);
   const totalQuantity = cartProducts
     ?.map((obj) => obj.quantity)
     .reduce((sum, val) => sum + val, 0);
@@ -30,15 +30,18 @@ export default function CartPage() {
           }}
         >
           <h2 style={{ textAlign: "center" }}>Items List</h2>
-          {cartProducts?.map((cartItem) => {
-            console.log("cartProducts", cartProducts);
-            return <CartItem Item={cartItem} />;
-          })}
+          <div style={{ height: 700, overflowY: "auto" }}>
+            {cartProducts?.map((cartItem) => {
+              return <CartItem Item={cartItem}  />;
+            })}
+          </div>
         </div>
         <div
           style={{
             height: 800,
-
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             width: 400,
             margin: "50px",
             borderRadius: "10px",
@@ -55,7 +58,8 @@ export default function CartPage() {
             }}
           >
             <h2>Order Summary</h2>
-            <div style={{ paddingTop: 200 }}>
+            <img src={thankyou} width={350} height={350} />
+            <div>
               <h2>TotalQuantity:{totalQuantity}</h2>
               <h2>TotalPrice:{totalPrice?.toFixed(2)}</h2>
             </div>
