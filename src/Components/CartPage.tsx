@@ -4,6 +4,7 @@ import { Products } from "../Context/ProductsContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import thankyou from "./thankyou.png";
+import "./MainPage.css";
 
 export default function CartPage() {
   const navigate = useNavigate();
@@ -16,49 +17,51 @@ export default function CartPage() {
     .reduce((sum, val) => sum + val, 0);
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="cartpage">
         <div
-          style={{
-            height: 800,
+          className="itemList"
+          // style={{
+          //   height: "inherit",
 
-            width: 1400,
-            marginTop: "50px",
-            marginLeft: "50px",
-            marginBottom: "50px",
-            borderRadius: "15px",
-            boxShadow: `0 3px 10px rgb(0 0 0 / 0.2)`,
-          }}
+          //   width: 1400,
+          //   marginTop: "50px",
+          //   marginLeft: "50px",
+          //   marginBottom: "50px",
+          //   borderRadius: "15px",
+          //   boxShadow: `0 3px 10px rgb(0 0 0 / 0.2)`,
+          // }}
         >
           <h2 style={{ textAlign: "center" }}>Items List</h2>
-          <div style={{ height: 700, overflowY: "auto" }}>
+          <div style={{ height: "inherit", overflowY: "auto" }}>
             {cartProducts?.map((cartItem) => {
-              return <CartItem Item={cartItem}  />;
+              return <CartItem Item={cartItem} />;
             })}
           </div>
         </div>
         <div
-          style={{
-            height: 800,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: 400,
-            margin: "50px",
-            borderRadius: "10px",
-            borderWidth: "1px",
-            borderColor: "ActiveBorders",
-            border: `2px solid rgba(0, 0, 0, 0.05)`,
-          }}
+          className="ordersummary"
+          // style={{
+          //   height: "inherit",
+          //   display: "flex",
+          //   justifyContent: "center",
+          //   alignItems: "center",
+          //   width: 400,
+          //   margin: "50px",
+          //   borderRadius: "10px",
+          //   borderWidth: "1px",
+          //   borderColor: "ActiveBorders",
+          //   border: `2px solid rgba(0, 0, 0, 0.05)`,
+          // }}
         >
           <div
             style={{
               justifyContent: "center",
               textAlign: "center",
-              margin: "50px",
+              margin: "inherit",
             }}
           >
             <h2>Order Summary</h2>
-            <img src={thankyou} width={350} height={350} />
+            <img src={thankyou} alt="img" width={350} height={350} />
             <div>
               <h2>TotalQuantity:{totalQuantity}</h2>
               <h2>TotalPrice:{totalPrice?.toFixed(2)}</h2>

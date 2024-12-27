@@ -30,11 +30,30 @@ export default function NavBar({
   return (
     <div className="navbar">
       <div></div>
-      <div>
-        <Typography color={"white"} variant="h4">
-          React Shopping Cart
-        </Typography>
-      </div>
+
+      <Typography
+        color={"white"}
+        sx={{
+          textAlign: {
+            sm: "center",
+            md: "center",
+          },
+          fontSize: {
+            sm: "15px",
+
+            md: "20px",
+            lg: "30px",
+          },
+          margin: {
+            sm: "20px",
+          },
+        }}
+        // variant={screen.width > 1250 ? "h4" : "h6"}
+        className="title"
+      >
+        React Shopping Cart
+      </Typography>
+
       <div className="searchbar">
         <input
           placeholder="Search"
@@ -46,61 +65,63 @@ export default function NavBar({
       </div>
 
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        className="btns"
+        // style={{
+        //   display: "flex",
+        //   flexDirection: "row",
+        //   justifyContent: "center",
+        //   alignItems: "center",
+        // }}
       >
-        <div>
-          <Button
-            variant="outlined"
-            sx={{
-              margin: 3,
-              marginRight: 0,
-              color: "black",
-              background: "white",
-              borderColor: "white",
-            }}
-            onClick={() => {
-              setIsStore(false);
-              setIsCollection(false);
-            }}
-          >
-            DashBoard
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{
-              margin: 3,
-              color: "black",
-              background: "white",
-              borderColor: "white",
-            }}
-            onClick={() => {
-              setIsStore(true);
-              // setIsCollection(false);
-            }}
-          >
-            Store
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{
-              // margin: 3,
-              // marginRight: 0,
-              color: "black",
-              background: "white",
+        {/* <div className="btns"> */}
+        <Button
+          variant="outlined"
+          sx={{
+            margin: 3,
+            marginRight: 0,
+            color: "black",
+            background: "white",
+            borderColor: "white",
+          }}
+          onClick={() => {
+            setIsStore(false);
+            setIsCollection(false);
+          }}
+        >
+          DashBoard
+        </Button>
+        <Button
+          variant="outlined"
+          sx={{
+            margin: 3,
+            color: "black",
+            background: "white",
+            borderColor: "white",
+          }}
+          onClick={() => {
+            setIsStore(true);
+            // setIsCollection(false);
+          }}
+        >
+          Store
+        </Button>
+        <Button
+          variant="outlined"
+          sx={{
+            //
+            // margin: 3,
+            // marginRight: 0,
+            color: "black",
+            background: "white",
 
-              borderColor: "black",
-            }}
-            disabled={cartProducts && cartProducts?.length !== 0 ? false : true}
-            onClick={() => navigate("/CartPage")}
-          >
-            Cart {cartLength}
-          </Button>
-        </div>
+            borderColor: "black",
+          }}
+          disabled={cartProducts && cartProducts?.length !== 0 ? false : true}
+          onClick={() => navigate("/CartPage")}
+        >
+          Cart {cartLength}
+        </Button>
+        {/* </div> */}
         <Button
           variant="outlined"
           sx={{
@@ -111,7 +132,7 @@ export default function NavBar({
           }}
           onClick={() => navigate("/SignIn")}
         >
-          Log Out
+          LogOut
         </Button>
         <Avatar
           sx={{

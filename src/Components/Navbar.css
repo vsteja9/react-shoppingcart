@@ -1,10 +1,19 @@
 .navbar{
     position: static;
     display: flex;
-    height: 50px;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(86, 55, 153);
+    
+    /* // 1250 */
+    /* searchbar size decrease and title size need to decrease */
+    /* 1000 below lo searchbar none and size decrease */
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .searchbar{
     display: flex;
@@ -13,6 +22,58 @@
     width: 500px;
     border: 1.5px solid white;
     border-radius: 20px;
+   
+}
+@media (max-width:1250px) {
+    .searchbar{
+    border: 1.5px solid white;
+    width: 250px;
+    height: 35px;
+
+    }
+    .searchbar input{
+        border: none;
+        outline: none;
+        color: white;
+        margin-left: 20px;
+        width: inherit;
+        background: inherit;
+        font-size: large;
+        font-weight:bold;
+    
+        
+    }
+    .searchbar img{
+        display: none
+    }
+    .btns{
+        display: flex;
+        size:'small';
+        align-items: center;
+        
+        
+
+    }
+    
+}
+@media(max-width:1010px){
+    .searchbar{
+        display: none;
+    }
+    .btns{
+        margin: 30px;
+    }
+}
+@media(max-width:500px){
+    .btns{
+      display: none;
+    }
+    .navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 .searchbar input{
     border: none;
